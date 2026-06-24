@@ -1,0 +1,46 @@
+name: jwt-compartido
+
+# Las 3 APIs comparten EXACTAMENTE la misma configuracion JWT.
+# Estas variables (Jwt__Key / Jwt__Issuer / Jwt__Audience) sobreescriben las de
+# appsettings.json. Por eso el token emitido por auth-api es valido en las otras dos.
+x-jwt: &jwt
+  Jwt__Key: "clave-super-secreta-compartida-entre-las-3-apis-cambiar-en-prod"
+  Jwt__Issuer: "jwt-compartido-demo"
+  Jwt__Audience: "jwt-compartido-demo"
+
+services:
+  auth-api:
+    build:
+      context: ./AuthApi
+    image: jwt-compartido/auth-api
+    container_name: jwt-auth-api
+    ports:
+      - "5001:8080"   # Swagger: http://localhost:5001/swagger
+    environment:
+      <<: *jwt
+      ASPNETCORE_ENVIRONMENT: Development
+      ASPNETCORE_HTTP_PORTS: "8080"
+
+  orders-api:
+    build:
+      context: ./OrdersApi
+    image: jwt-compartido/orders-api
+    container_name: jwt-orders-api
+    ports:
+      - "5002:8080"   # Swagger: http://localhost:5002/swagger
+    environment:
+      <<: *jwt
+      ASPNETCORE_ENVIRONMENT: Development
+      ASPNETCORE_HTTP_PORTS: "8080"
+
+  catalog-api:
+    build:
+      context: ./CatalogApi
+    image: jwt-compartido/catalog-api
+    container_name: jwt-catalog-api
+    ports:
+      - "5003:8080"   # Swagger: http://localhost:5003/swagger
+    environment:
+      <<: *jwt
+      ASPNETCORE_ENVIRONMENT: Development
+      ASPNETCORE_HTTP_PORTS: "8080"
