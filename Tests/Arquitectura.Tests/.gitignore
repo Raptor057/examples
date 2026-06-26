@@ -1,0 +1,4 @@
+# Artefactos de compilacion de este proyecto .NET
+bin/
+obj/
+TestResults/

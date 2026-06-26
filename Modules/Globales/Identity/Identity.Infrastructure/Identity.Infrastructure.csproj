@@ -1,0 +1,16 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net10.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+  </PropertyGroup>
+
+  <!-- La implementacion del contrato vive en Infrastructure (lee el contexto
+       HTTP), igual que CurrentUserAccessor en ArccNova. -->
+  <ItemGroup>
+    <FrameworkReference Include="Microsoft.AspNetCore.App" />
+    <ProjectReference Include="..\Identity.Contracts\Identity.Contracts.csproj" />
+  </ItemGroup>
+
+</Project>

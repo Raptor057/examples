@@ -1,0 +1,14 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <!--
+    Contracts: lo UNICO que el modulo Inventario expone al resto del monolito.
+    Sin dependencias a Domain/Application/Infrastructure. Solo interfaces y POCOs.
+    Igual que Identity.Contracts en ArccNova.WebApi.
+  -->
+  <PropertyGroup>
+    <TargetFramework>net10.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+  </PropertyGroup>
+
+</Project>

@@ -1,0 +1,18 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net10.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+  </PropertyGroup>
+
+  <!-- Igual que Identity.Presentation: Application propio + chasis web (Shared.Web)
+       + Common.Web (ResultViewModel). -->
+  <ItemGroup>
+    <FrameworkReference Include="Microsoft.AspNetCore.App" />
+    <ProjectReference Include="..\Inventario.Application\Inventario.Application.csproj" />
+    <ProjectReference Include="..\..\..\Shared\Shared.Web\Shared.Web.csproj" />
+    <ProjectReference Include="..\..\..\Shared\Common\Common.Web\Common.Web.csproj" />
+  </ItemGroup>
+
+</Project>

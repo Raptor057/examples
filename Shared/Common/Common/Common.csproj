@@ -1,0 +1,19 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net10.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+  </PropertyGroup>
+
+  <!-- Facade transitoria: re-exporta las 5 sub-librerías para que los consumidores
+       que hoy referencian Common.csproj sigan compilando sin cambios. -->
+  <ItemGroup>
+    <ProjectReference Include="../Common.Contracts/Common.Contracts.csproj" />
+    <ProjectReference Include="../Common.Messaging/Common.Messaging.csproj" />
+    <ProjectReference Include="../Common.MultiTenancy/Common.MultiTenancy.csproj" />
+    <ProjectReference Include="../Common.Infra/Common.Infra.csproj" />
+    <ProjectReference Include="../Common.Web/Common.Web.csproj" />
+  </ItemGroup>
+
+</Project>

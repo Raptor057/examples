@@ -1,0 +1,32 @@
+# ---- Artefactos de build .NET ----
+bin/
+obj/
+out/
+[Dd]ebug/
+[Rr]elease/
+x64/
+x86/
+*.dll
+*.pdb
+
+# ---- IDE / editores ----
+.vs/
+.vscode/
+.idea/
+*.user
+*.suo
+*.userosscache
+*.sln.docstates
+*.DotSettings.user
+
+# ---- Resultados de test ----
+[Tt]est[Rr]esult*/
+*.trx
+
+# ---- Entornos locales ----
+.env
+*.env
+
+# ---- Sistema operativo ----
+.DS_Store
+Thumbs.db

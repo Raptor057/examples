@@ -1,0 +1,45 @@
+<Solution>
+  <Folder Name="/Host/">
+    <Project Path="Host/Host.Api/Host.Api.csproj" />
+  </Folder>
+  <Folder Name="/Modules/" />
+  <Folder Name="/Modules/Globales/" />
+  <Folder Name="/Modules/Globales/Geo/">
+    <Project Path="Modules/Globales/Geo/Geo.Application/Geo.Application.csproj" />
+    <Project Path="Modules/Globales/Geo/Geo.Contracts/Geo.Contracts.csproj" />
+    <Project Path="Modules/Globales/Geo/Geo.Domain/Geo.Domain.csproj" />
+    <Project Path="Modules/Globales/Geo/Geo.Infrastructure/Geo.Infrastructure.csproj" />
+    <Project Path="Modules/Globales/Geo/Geo.Presentation/Geo.Presentation.csproj" />
+  </Folder>
+  <Folder Name="/Modules/Globales/Identity/">
+    <Project Path="Modules/Globales/Identity/Identity.Contracts/Identity.Contracts.csproj" />
+    <Project Path="Modules/Globales/Identity/Identity.Infrastructure/Identity.Infrastructure.csproj" />
+  </Folder>
+  <Folder Name="/Modules/Inventario/">
+    <Project Path="Modules/Inventario/Inventario.Application/Inventario.Application.csproj" />
+    <Project Path="Modules/Inventario/Inventario.Contracts/Inventario.Contracts.csproj" />
+    <Project Path="Modules/Inventario/Inventario.Domain/Inventario.Domain.csproj" />
+    <Project Path="Modules/Inventario/Inventario.Infrastructure/Inventario.Infrastructure.csproj" />
+    <Project Path="Modules/Inventario/Inventario.Presentation/Inventario.Presentation.csproj" />
+  </Folder>
+  <Folder Name="/Modules/Ventas/">
+    <Project Path="Modules/Ventas/Ventas.Application/Ventas.Application.csproj" />
+    <Project Path="Modules/Ventas/Ventas.Domain/Ventas.Domain.csproj" />
+    <Project Path="Modules/Ventas/Ventas.Infrastructure/Ventas.Infrastructure.csproj" />
+    <Project Path="Modules/Ventas/Ventas.Presentation/Ventas.Presentation.csproj" />
+  </Folder>
+  <Folder Name="/Shared/">
+    <Project Path="Shared/Shared.Web/Shared.Web.csproj" />
+  </Folder>
+  <Folder Name="/Shared/Common/">
+    <Project Path="Shared/Common/Common.Contracts/Common.Contracts.csproj" />
+    <Project Path="Shared/Common/Common.Infra/Common.Infra.csproj" />
+    <Project Path="Shared/Common/Common.Messaging/Common.Messaging.csproj" />
+    <Project Path="Shared/Common/Common.MultiTenancy/Common.MultiTenancy.csproj" />
+    <Project Path="Shared/Common/Common.Web/Common.Web.csproj" />
+    <Project Path="Shared/Common/Common/Common.csproj" />
+  </Folder>
+  <Folder Name="/Tests/">
+    <Project Path="Tests/Arquitectura.Tests/Arquitectura.Tests.csproj" />
+  </Folder>
+</Solution>

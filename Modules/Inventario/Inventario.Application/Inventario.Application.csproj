@@ -1,0 +1,22 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net10.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+  </PropertyGroup>
+
+  <!-- Igual que Identity.Application en ArccNova: Domain + Contracts propios +
+       Common.Messaging (IRequest/IInteractor) + Common.Contracts (IResponse/ISuccess). -->
+  <ItemGroup>
+    <ProjectReference Include="..\Inventario.Domain\Inventario.Domain.csproj" />
+    <ProjectReference Include="..\Inventario.Contracts\Inventario.Contracts.csproj" />
+    <ProjectReference Include="..\..\..\Shared\Common\Common.Messaging\Common.Messaging.csproj" />
+    <ProjectReference Include="..\..\..\Shared\Common\Common.Contracts\Common.Contracts.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.Extensions.DependencyInjection.Abstractions" Version="10.0.0" />
+  </ItemGroup>
+
+</Project>
