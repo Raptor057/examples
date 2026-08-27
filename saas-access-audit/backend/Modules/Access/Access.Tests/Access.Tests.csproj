@@ -1,0 +1,27 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <TargetFramework>net10.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+    <IsPackable>false</IsPackable>
+    <TreatWarningsAsErrors>true</TreatWarningsAsErrors>
+  </PropertyGroup>
+  <ItemGroup>
+    <FrameworkReference Include="Microsoft.AspNetCore.App" />
+  </ItemGroup>
+  <ItemGroup>
+    <Using Include="Xunit" />
+  </ItemGroup>
+  <ItemGroup>
+    <PackageReference Include="Microsoft.NET.Test.Sdk" Version="17.14.1" />
+    <PackageReference Include="xunit.v3" Version="3.1.0" />
+    <PackageReference Include="xunit.runner.visualstudio" Version="3.1.0" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Access.Application\Access.Application.csproj" />
+    <ProjectReference Include="..\Access.Contracts\Access.Contracts.csproj" />
+    <ProjectReference Include="..\Access.Domain\Access.Domain.csproj" />
+    <ProjectReference Include="..\Access.Infrastructure\Access.Infrastructure.csproj" />
+    <ProjectReference Include="..\Access.Presentation\Access.Presentation.csproj" />
+  </ItemGroup>
+</Project>

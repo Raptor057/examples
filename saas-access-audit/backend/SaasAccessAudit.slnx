@@ -1,0 +1,25 @@
+<Solution>
+  <Folder Name="/Shared/">
+    <Project Path="Common/Common.csproj" />
+    <Project Path="Shared/SaasAccessAudit.Kernel/SaasAccessAudit.Kernel.csproj" />
+    <Project Path="Shared/SaasAccessAudit.Shared/SaasAccessAudit.Shared.csproj" />
+    <Project Path="Shared/SaasAccessAudit.Shared.Web/SaasAccessAudit.Shared.Web.csproj" />
+  </Folder>
+  <Folder Name="/Modules/Access/">
+    <Project Path="Modules/Access/Access.Application/Access.Application.csproj" />
+    <Project Path="Modules/Access/Access.Contracts/Access.Contracts.csproj" />
+    <Project Path="Modules/Access/Access.Domain/Access.Domain.csproj" />
+    <Project Path="Modules/Access/Access.Infrastructure/Access.Infrastructure.csproj" />
+    <Project Path="Modules/Access/Access.Presentation/Access.Presentation.csproj" />
+    <Project Path="Modules/Access/Access.Tests/Access.Tests.csproj" />
+  </Folder>
+  <Folder Name="/Modules/Audit/">
+    <Project Path="Modules/Audit/Audit.Application/Audit.Application.csproj" />
+    <Project Path="Modules/Audit/Audit.Contracts/Audit.Contracts.csproj" />
+    <Project Path="Modules/Audit/Audit.Domain/Audit.Domain.csproj" />
+    <Project Path="Modules/Audit/Audit.Infrastructure/Audit.Infrastructure.csproj" />
+    <Project Path="Modules/Audit/Audit.Presentation/Audit.Presentation.csproj" />
+    <Project Path="Modules/Audit/Audit.Tests/Audit.Tests.csproj" />
+  </Folder>
+  <Project Path="SaasAccessAudit.Host/SaasAccessAudit.Host.csproj" />
+</Solution>

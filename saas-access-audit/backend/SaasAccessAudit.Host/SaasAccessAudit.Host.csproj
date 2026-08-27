@@ -1,0 +1,27 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+  <PropertyGroup>
+    <TargetFramework>net10.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+    <TreatWarningsAsErrors>true</TreatWarningsAsErrors>
+    <UserSecretsId>saas-access-audit</UserSecretsId>
+  </PropertyGroup>
+  <ItemGroup>
+    <PackageReference Include="Microsoft.AspNetCore.Authentication.JwtBearer" Version="10.0.3" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="10.0.3">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Common\Common.csproj" />
+    <ProjectReference Include="..\Shared\SaasAccessAudit.Shared\SaasAccessAudit.Shared.csproj" />
+    <ProjectReference Include="..\Shared\SaasAccessAudit.Shared.Web\SaasAccessAudit.Shared.Web.csproj" />
+    <ProjectReference Include="..\Modules\Access\Access.Application\Access.Application.csproj" />
+    <ProjectReference Include="..\Modules\Access\Access.Infrastructure\Access.Infrastructure.csproj" />
+    <ProjectReference Include="..\Modules\Access\Access.Presentation\Access.Presentation.csproj" />
+    <ProjectReference Include="..\Modules\Audit\Audit.Application\Audit.Application.csproj" />
+    <ProjectReference Include="..\Modules\Audit\Audit.Infrastructure\Audit.Infrastructure.csproj" />
+    <ProjectReference Include="..\Modules\Audit\Audit.Presentation\Audit.Presentation.csproj" />
+  </ItemGroup>
+</Project>

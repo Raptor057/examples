@@ -1,0 +1,38 @@
+# Motor del ejemplo. PostgreSQL 16 porque es la version que el catalogo fija para proyectos
+# personales (regla de oro 3: el motor lo decide el ecosistema, no el proyecto), y porque es
+# 100% compatible con AWS Aurora PostgreSQL: lo que corre aqui corre alla sin cambios.
+services:
+  postgres:
+    image: postgres:16-alpine
+    container_name: saas-access-audit-postgres
+    environment:
+      POSTGRES_DB: ${POSTGRES_DB:-saas_access_audit}
+      POSTGRES_USER: ${POSTGRES_USER:-saas}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:-saas_dev_password}
+    ports:
+      # 55440 y no 5432 para no chocar con un PostgreSQL ya instalado ni con los otros ejemplos
+      # del repositorio, que levantan su propio contenedor.
+      - "${POSTGRES_PORT:-55440}:5432"
+    volumes:
+      - saas-access-audit-pgdata:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U ${POSTGRES_USER:-saas} -d ${POSTGRES_DB:-saas_access_audit}"]
+      interval: 5s
+      timeout: 5s
+      retries: 20
+    command:
+      - postgres
+      # Ajustes de DESARROLLO para que sembrar 150 mil renglones de bitacora tarde segundos y no
+      # minutos. synchronous_commit=off cambia durabilidad por velocidad: en un ejemplo
+      # desechable es un buen trato, en produccion NO se hace.
+      - -c
+      - synchronous_commit=off
+      - -c
+      - shared_buffers=256MB
+      - -c
+      - work_mem=16MB
+      - -c
+      - maintenance_work_mem=256MB
+
+volumes:
+  saas-access-audit-pgdata:
