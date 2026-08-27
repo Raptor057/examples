@@ -1,0 +1,31 @@
+# Motor del ejemplo. SQL Server porque este ejemplo modela un proyecto corporativo, y la regla
+# de oro 3 del catalogo dice que el motor lo decide el ecosistema y no el proyecto. Imagen
+# oficial de Microsoft, nada que instalar a mano.
+services:
+  sqlserver:
+    image: mcr.microsoft.com/mssql/server:2022-latest
+    container_name: ops-scheduled-jobs-sqlserver
+    environment:
+      ACCEPT_EULA: "Y"
+      MSSQL_SA_PASSWORD: ${MSSQL_SA_PASSWORD:-Ops_dev_password1!}
+      # Developer: gratuita para desarrollo y con las mismas capacidades que Enterprise.
+      MSSQL_PID: Developer
+    ports:
+      # 51433 y no 1433 para no chocar con un SQL Server ya instalado en la maquina.
+      - "${MSSQL_PORT:-51433}:1433"
+    volumes:
+      - ops-scheduled-jobs-mssqldata:/var/opt/mssql
+    healthcheck:
+      # -C confia en el certificado autofirmado que la imagen genera; sin eso sqlcmd 18 falla.
+      test:
+        [
+          "CMD-SHELL",
+          "/opt/mssql-tools18/bin/sqlcmd -C -S localhost -U sa -P \"$$MSSQL_SA_PASSWORD\" -Q 'SELECT 1' -b -o /dev/null"
+        ]
+      interval: 10s
+      timeout: 5s
+      retries: 30
+      start_period: 30s
+
+volumes:
+  ops-scheduled-jobs-mssqldata:
