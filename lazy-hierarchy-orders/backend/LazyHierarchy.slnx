@@ -1,0 +1,17 @@
+<Solution>
+  <Folder Name="/Shared/">
+    <Project Path="Common/Common.csproj" />
+    <Project Path="Shared/LazyHierarchy.Kernel/LazyHierarchy.Kernel.csproj" />
+    <Project Path="Shared/LazyHierarchy.Shared/LazyHierarchy.Shared.csproj" />
+    <Project Path="Shared/LazyHierarchy.Shared.Web/LazyHierarchy.Shared.Web.csproj" />
+  </Folder>
+  <Folder Name="/Modules/">
+    <Project Path="Modules/Orders/Orders.Application/Orders.Application.csproj" />
+    <Project Path="Modules/Orders/Orders.Contracts/Orders.Contracts.csproj" />
+    <Project Path="Modules/Orders/Orders.Domain/Orders.Domain.csproj" />
+    <Project Path="Modules/Orders/Orders.Infrastructure/Orders.Infrastructure.csproj" />
+    <Project Path="Modules/Orders/Orders.Presentation/Orders.Presentation.csproj" />
+    <Project Path="Modules/Orders/Orders.Tests/Orders.Tests.csproj" />
+  </Folder>
+  <Project Path="LazyHierarchy.Host/LazyHierarchy.Host.csproj" />
+</Solution>

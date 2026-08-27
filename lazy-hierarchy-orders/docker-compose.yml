@@ -1,0 +1,39 @@
+# Motor del ejemplo. PostgreSQL 16 porque es la version que el catalogo fija para proyectos
+# personales, y porque es 100% compatible con AWS Aurora PostgreSQL: lo que corre aqui corre
+# alla sin cambios. Nada de instalar nada a mano.
+services:
+  postgres:
+    image: postgres:16-alpine
+    container_name: lazy-hierarchy-postgres
+    environment:
+      POSTGRES_DB: ${POSTGRES_DB:-lazy_hierarchy}
+      POSTGRES_USER: ${POSTGRES_USER:-lazy}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:-lazy_dev_password}
+    ports:
+      # 55432 y no 5432 para no chocar con un PostgreSQL ya instalado en la maquina.
+      - "${POSTGRES_PORT:-55432}:5432"
+    volumes:
+      - lazy-hierarchy-pgdata:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U ${POSTGRES_USER:-lazy} -d ${POSTGRES_DB:-lazy_hierarchy}"]
+      interval: 5s
+      timeout: 5s
+      retries: 20
+    command:
+      - postgres
+      # Ajustes de DESARROLLO para que sembrar dos millones de lineas tarde minutos y no horas.
+      # synchronous_commit=off cambia durabilidad por velocidad: en un ejemplo desechable es un
+      # buen trato, en produccion NO se hace.
+      - -c
+      - synchronous_commit=off
+      - -c
+      - shared_buffers=512MB
+      - -c
+      - work_mem=32MB
+      - -c
+      - maintenance_work_mem=512MB
+      - -c
+      - max_wal_size=4GB
+
+volumes:
+  lazy-hierarchy-pgdata:

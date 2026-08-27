@@ -1,0 +1,77 @@
+@host = http://localhost:5080
+
+### Salud
+GET {{host}}/health
+
+### Tenants sembrados (andamiaje del ejemplo)
+GET {{host}}/api/session/tenants
+
+### Token de un tenant. El claim tenant_id lo FIRMA el servidor.
+# @name token
+POST {{host}}/api/session/token
+Content-Type: application/json
+
+{ "tenantCode": "acme" }
+
+###
+@accessToken = {{token.response.body.data.accessToken}}
+
+### Nivel 1 - anios. Cada nodo trae su nextLevel y su conteo agregado.
+GET {{host}}/api/orders-tree/children?level=tree-year&searchType=all
+Authorization: Bearer {{accessToken}}
+
+### Nivel 2 - meses de un anio
+GET {{host}}/api/orders-tree/children?level=tree-month&searchType=all&year=2026
+Authorization: Bearer {{accessToken}}
+
+### Nivel 3 - categorias del mes
+GET {{host}}/api/orders-tree/children?level=tree-category&searchType=all&year=2026&month=7
+Authorization: Bearer {{accessToken}}
+
+### Nivel 4 - productos de la categoria
+GET {{host}}/api/orders-tree/children?level=tree-product&searchType=all&year=2026&month=7&categoryId=1
+Authorization: Bearer {{accessToken}}
+
+### Nivel 5 - pedidos. EL UNICO PAGINADO: CTE que pagina + LEFT JOIN LATERAL que enriquece.
+GET {{host}}/api/orders-tree/children?level=tree-order&searchType=all&year=2026&month=7&categoryId=1&productId=2&pageNumber=1&pageSize=50
+Authorization: Bearer {{accessToken}}
+
+### Nivel 6 - la hoja devuelve su subarbol completo en una sola llamada
+GET {{host}}/api/orders-tree/children?level=tree-order-detail&searchType=all&orderId=273133
+Authorization: Bearer {{accessToken}}
+
+### Nivel fuera de la lista blanca -> 400, sin tocar la base
+GET {{host}}/api/orders-tree/children?level=tree-hack&searchType=all
+Authorization: Bearer {{accessToken}}
+
+### Tipo de busqueda desconocido -> 400 en el handler; si llegara al SQL, el default 1 = 0
+GET {{host}}/api/orders-tree/children?level=tree-year&searchType=nope&searchValue=x
+Authorization: Bearer {{accessToken}}
+
+### Coordenada faltante -> 400 con mensaje propio del nivel
+GET {{host}}/api/orders-tree/children?level=tree-order&searchType=all&year=2026&month=7
+Authorization: Bearer {{accessToken}}
+
+### Valor de busqueda parametrizado: la inyeccion no hace nada
+GET {{host}}/api/orders-tree/children?level=tree-year&searchType=status&searchValue=%27%20OR%201%3D1%20--
+Authorization: Bearer {{accessToken}}
+
+### Exportacion acotada al nodo, por paginas
+GET {{host}}/api/orders-tree/export?searchType=all&year=2026&month=7&pageNumber=1&pageSize=20000
+Authorization: Bearer {{accessToken}}
+
+### Escritura por EF Core. El cuerpo NO lleva tenant: lo sella el interceptor desde el token.
+POST {{host}}/api/orders
+Authorization: Bearer {{accessToken}}
+Content-Type: application/json
+
+{
+  "orderNumber": "DEMO-0001",
+  "customerName": "Prueba en vivo",
+  "lines": [
+    { "productPublicId": "00000000-0000-0000-0000-000000000000", "quantity": 2 }
+  ]
+}
+
+### Sin token -> 401. Sin claim no hay tenant, y sin tenant el filtro no devuelve nada.
+GET {{host}}/api/orders-tree/children?level=tree-year&searchType=all

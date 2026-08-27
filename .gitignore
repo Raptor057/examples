@@ -1,0 +1,66 @@
+# ---------------------------------------------------------------------------
+# .NET
+# ---------------------------------------------------------------------------
+bin/
+obj/
+[Dd]ebug/
+[Rr]elease/
+x64/
+x86/
+*.user
+*.suo
+*.userprefs
+*.dbmdl
+*.rsuser
+.vs/
+.vscode/
+*.nupkg
+*.snupkg
+artifacts/
+TestResults/
+coverage*.json
+coverage*.xml
+*.received.*
+*.trx
+
+# ---------------------------------------------------------------------------
+# Node
+# ---------------------------------------------------------------------------
+node_modules/
+dist/
+dist-ssr/
+.vite/
+*.local
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+.eslintcache
+.npm/
+
+# ---------------------------------------------------------------------------
+# Docker
+# ---------------------------------------------------------------------------
+docker-compose.override.yml
+.docker/
+*.pid
+
+# ---------------------------------------------------------------------------
+# Secretos y configuracion local (nunca versionados)
+# ---------------------------------------------------------------------------
+.env
+.env.*
+!.env.example
+appsettings.Local.json
+appsettings.*.local.json
+*.pfx
+*.key
+
+# ---------------------------------------------------------------------------
+# Sistema operativo / editores
+# ---------------------------------------------------------------------------
+.DS_Store
+Thumbs.db
+desktop.ini
+*.swp
+*~
