@@ -11,7 +11,7 @@ conceptos aplicados.
 Comunicacion entre modulos/
   ComunicacionModulos.slnx              solucion (formato nuevo .slnx, como ArccNova)
   Shared/
-    Common/                             submodulo git (NO se edita)
+    Common/                             copia de la libreria Common (NO se edita)
       Common.Messaging/                 IMediator, IRequest, IInteractor, IPresenter, IResponse
       Common.Contracts/                 Result, ISuccess, IFailure, IValidationFailure, ...
       Common.Infra/                     AddMediator(), Mediator, InteractorPipeline, AddObservability()
@@ -118,11 +118,13 @@ Idea clave: los modulos se "tocan" solo en la capa de Contracts. El Host es el
 unico que conoce a todos por completo, porque es quien arma el rompecabezas (el
 composition root).
 
-## El submodulo Common
+## La libreria Common
 
-`Shared/Common` es un submodulo git que apunta a
-`https://github.com/Raptor-Dev-Services/Common.git` (el mismo que usa ArccNova).
-Es codigo compartido y NO se edita desde este repo.
+`Shared/Common` es una **copia** de
+`https://github.com/Raptor-Dev-Services/Common.git` (el mismo que usa ArccNova),
+incluida tal cual dentro del ejemplo. En un proyecto real va como submodulo fijado a
+un commit; aqui se copio para que el ejemplo compile sin pasos extra dentro del
+monorepo `examples`. Es codigo compartido y NO se edita desde este ejemplo.
 
 Que se usa de Common:
 
@@ -133,14 +135,10 @@ Que se usa de Common:
 | `Common.Infra` | `AddMediator()` (registra el mediator y el pipeline) y `AddObservability()` (metricas) | el Host |
 | `Common.Web` | `ResultViewModel<T>` (el envelope) | Presentation de cada modulo |
 
-Como es un submodulo, al clonar el repo en otra maquina hay que inicializarlo:
-
-```bash
-git submodule update --init --recursive
-```
-
-Si te olvidas, la carpeta `Shared/Common` aparece vacia y la compilacion falla con
-errores de "no se encuentra Common.Messaging". Ese es el sintoma tipico.
+Como es una copia, al clonar `examples` ya viene completa: no hay que inicializar
+nada. En un proyecto donde Common si es submodulo, el sintoma de olvidarse de
+`git submodule update --init --recursive` es la carpeta `Shared/Common` vacia y la
+compilacion fallando con "no se encuentra Common.Messaging".
 
 ## El Host como composition root
 
@@ -172,7 +170,7 @@ quede claro:
 - Los repositorios son EN MEMORIA, no EF Core + PostgreSQL.
 - `Identity` lee headers HTTP (`X-User-Name`) en lugar de validar un JWT real.
 - No hay multi-tenant, ni autorizacion por roles, ni base de datos.
-- El submodulo Common trae logging, OpenTelemetry y Dapper, pero el ejemplo solo
+- La libreria Common trae logging, OpenTelemetry y Dapper, pero el ejemplo solo
   cablea el Mediator y las metricas Prometheus.
 
 Todo lo demas (capas, Contracts, Mediator, Presenter, ResultViewModel, registro en

@@ -6,22 +6,10 @@ comunes.
 ## Requisitos
 
 - .NET 10 SDK (verifica con `dotnet --list-sdks`).
-- git (para el submodulo Common).
 
-## Primera vez: traer el submodulo
-
-El codigo compartido vive en el submodulo `Shared/Common`. Si clonaste el repo,
-inicializalo:
-
-```bash
-git submodule update --init --recursive
-```
-
-Si clonas desde cero, puedes hacerlo en un paso:
-
-```bash
-git clone --recursive <url-del-repo>
-```
+El ejemplo vive en la carpeta `comunicacion-modulos/` del repo `examples`, y los
+comandos de abajo se corren desde ahi. El codigo compartido (`Shared/Common`) viene
+incluido como copia: no hay submodulo que inicializar.
 
 ## Compilar, testear y correr
 
@@ -190,10 +178,10 @@ correrla otra vez desde el IDE.
 
 ### Errores "no se encuentra Common.Messaging / Common.Web"
 
-No se inicializo el submodulo. Ejecuta:
+La copia de `Shared/Common` esta incompleta o se borro. Restaurala desde git:
 
 ```bash
-git submodule update --init --recursive
+git checkout -- Shared/Common
 ```
 
 ### "No handler registered for request X"

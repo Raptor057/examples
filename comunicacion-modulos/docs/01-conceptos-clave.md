@@ -129,7 +129,7 @@ Por que se usa: desacopla quien pide (controller) de quien resuelve (handler), y
 permite meter pasos automaticos en medio (logging, validacion) sin tocar el
 handler. Eso ultimo se llama pipeline.
 
-En el proyecto el mediador es `IMediator` del submodulo `Common` (no es la libreria
+En el proyecto el mediador es `IMediator` del libreria `Common` (no es la libreria
 MediatR). Se usa asi:
 
 ```csharp
@@ -170,7 +170,7 @@ presentacion. Es el patron Presenter de ArccNova.
 
 ## ResultViewModel y el envelope de respuesta
 
-`ResultViewModel<T>` (del submodulo `Common`) es el objeto que termina viajando al
+`ResultViewModel<T>` (del libreria `Common`) es el objeto que termina viajando al
 cliente. Siempre tiene la misma forma (el "envelope"):
 
 ```json

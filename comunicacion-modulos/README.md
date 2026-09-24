@@ -3,7 +3,7 @@
 Proyecto de ejemplo, autoexplicado, que muestra como dos partes de una misma
 aplicacion (modulos) se comunican entre si SIN conocerse por dentro, usando el
 mismo patron que `ArccNova.WebApi`: monolito modular con Clean Architecture,
-CQRS, un Mediator propio (submodulo `Common`), Presenters y `ResultViewModel`.
+CQRS, un Mediator propio (libreria `Common`), Presenters y `ResultViewModel`.
 
 Esta pensado para que lo entienda cualquier perfil del equipo: si eres Junior,
 empieza por la guia de conceptos; si eres Senior, ve directo a arquitectura y
@@ -33,17 +33,17 @@ Lee en este orden si es tu primera vez:
 
 ## Arranque rapido
 
-Requisitos: .NET 10 SDK y git.
+Requisitos: .NET 10 SDK.
+
+Todo se corre desde esta carpeta (`comunicacion-modulos/` dentro del repo `examples`).
+`Shared/Common` viene incluido como copia, asi que no hay submodulo que inicializar.
 
 ```bash
-# 1. Traer el submodulo Common (la primera vez)
-git submodule update --init --recursive
-
-# 2. Compilar y correr los tests de arquitectura
+# 1. Compilar y correr los tests de arquitectura
 dotnet build ComunicacionModulos.slnx
 dotnet test  ComunicacionModulos.slnx
 
-# 3. Levantar la API (abre el navegador en /swagger automaticamente)
+# 2. Levantar la API (abre el navegador en /swagger automaticamente)
 dotnet run --project Host/Host.Api
 ```
 
@@ -54,7 +54,7 @@ Swagger queda en http://localhost:5200/swagger.
 ```
 Comunicacion entre modulos/
   Shared/
-    Common/        submodulo git: Mediator, Result, AddMediator, ResultViewModel
+    Common/        copia de Common: Mediator, Result, AddMediator, ResultViewModel
     Shared.Web/    BaseApiController (chasis web compartido)
   Modules/
     Globales/      modulos transversales que todos consumen

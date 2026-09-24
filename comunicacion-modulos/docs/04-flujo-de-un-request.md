@@ -87,7 +87,7 @@ para que el presenter le diga al controller que codigo HTTP usar.
 
 ## Paso 2: el pipeline registra y pasa el control
 
-Archivo (del submodulo): `Common.Infra/Messaging/InteractorPipeline.cs`
+Archivo (de Common): `Common.Infra/Messaging/InteractorPipeline.cs`
 
 El Mediator no llama directo al handler: primero pasa por el pipeline, que registra
 el request en el log, ejecuta el handler (`next()`), registra la respuesta y luego
