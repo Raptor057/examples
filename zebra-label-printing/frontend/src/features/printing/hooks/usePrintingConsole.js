@@ -1,4 +1,5 @@
 import { useCallback, useEffect, useState } from 'react'
+import { signIn } from '../../../auth/session'
 import {
   getHealth,
   listPrintJobs,
@@ -48,6 +49,9 @@ export default function usePrintingConsole() {
     async function load() {
       setLoading(true)
       try {
+        // Primero la sesion: la API exige permisos y sin token todo contesta 401.
+        await signIn()
+
         const [healthData, printerData, jobData] = await Promise.all([
           getHealth(controller.signal),
           listPrinters(false, controller.signal),

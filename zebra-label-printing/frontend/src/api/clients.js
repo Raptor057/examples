@@ -1,4 +1,5 @@
 import { API_BASE_URL } from '../config/env'
+import { getAccessToken } from '../auth/session'
 
 /**
  * Cliente HTTP central. Todo el acceso a la API pasa por aqui: ningun componente ni hook llama a
@@ -14,6 +15,8 @@ async function request(path, { params, method = 'GET', body, signal } = {}) {
   }
 
   const headers = { Accept: 'application/json' }
+  const token = getAccessToken()
+  if (token) headers.Authorization = `Bearer ${token}`
   if (body !== undefined) headers['Content-Type'] = 'application/json'
 
   const response = await fetch(url, {
