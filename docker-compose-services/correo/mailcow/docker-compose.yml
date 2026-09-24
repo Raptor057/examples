@@ -1,0 +1,70 @@
+services:
+  mysql-mailcow:
+    image: mariadb:10.5
+    restart: always
+    environment:
+      - MYSQL_ROOT_PASSWORD=moohoo
+    volumes:
+      - mysql-vol:/var/lib/mysql
+    networks:
+      - mailcow-network
+
+  redis-mailcow:
+    image: redis:6-alpine
+    restart: always
+    volumes:
+      - redis-vol:/data
+    networks:
+      - mailcow-network
+
+  rspamd-mailcow:
+    image: mailcow/rspamd:latest
+    restart: always
+    depends_on:
+      - redis-mailcow
+    networks:
+      - mailcow-network
+
+  postfix-mailcow:
+    image: mailcow/postfix:latest
+    restart: always
+    depends_on:
+      - mysql-mailcow
+      - redis-mailcow
+    ports:
+      - "25:25"
+      - "587:587"
+    networks:
+      - mailcow-network
+
+  dovecot-mailcow:
+    image: mailcow/dovecot:latest
+    restart: always
+    depends_on:
+      - mysql-mailcow
+      - redis-mailcow
+    ports:
+      - "993:993"
+      - "143:143"
+    networks:
+      - mailcow-network
+
+  nginx-mailcow:
+    image: mailcow/nginx:latest
+    restart: always
+    depends_on:
+      - postfix-mailcow
+      - dovecot-mailcow
+    ports:
+      - "80:80"
+      - "443:443"
+    networks:
+      - mailcow-network
+
+volumes:
+  mysql-vol:
+  redis-vol:
+
+networks:
+  mailcow-network:
+    driver: bridge

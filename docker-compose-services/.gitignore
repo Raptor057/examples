@@ -1,0 +1,8 @@
+# Estado que generan los contenedores al correr: nunca se versiona
+# (bases de datos, llaves privadas, certificados, datos de usuarios).
+*-data/
+gestion-docker/portainer/portainer_data/
+gestion-docker/dockge/data/
+gestion-docker/dockge/docker-files/
+ci-y-calidad/sonarqube/data/
+ci-y-calidad/sonarqube/extensions/

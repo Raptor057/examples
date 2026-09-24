@@ -1,0 +1,18 @@
+services:
+  mailpit:
+    image: axllent/mailpit
+    container_name: mailpit
+    ports:
+      - "8025:8025"  # Web UI
+      - "1025:1025"  # SMTP
+    environment:
+      MP_SMTP_HOST: 0.0.0.0
+      MP_SMTP_PORT: 1025
+      MP_UI_BINDADDR: 0.0.0.0:8025
+      MP_DATA_FILE: /data/mailpit.db
+      MP_SMTP_TLS: false                  # Opcional: para pruebas sin TLS
+      MP_LOG_LEVEL: debug                 # Más detalles en logs
+      MP_MAX_MESSAGES: 10000              # Límite de mensajes almacenados
+      MP_MESSAGE_SIZE_LIMIT: 10485760     # Límite de tamaño por mensaje (10 MB)
+    volumes:
+      - ${DOCKER_VOLUME_ABSOLUTE_PATH:-.}/mailpit-data:/data

@@ -1,0 +1,14 @@
+services:
+  sonarqube:
+    image: sonarqube:lts
+    container_name: sonarqube
+    ports:
+      - "9000:9000"
+    environment:
+      - SONAR_ES_BOOTSTRAP_CHECKS_DISABLE=true
+    volumes:
+      - ./data:/opt/sonarqube/data
+      - ./extensions:/opt/sonarqube/extensions
+    restart: always
+
+# default: admin / admin

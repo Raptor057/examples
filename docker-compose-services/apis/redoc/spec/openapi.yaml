@@ -1,0 +1,87 @@
+openapi: 3.1.0
+info:
+  title: API de Usuarios
+  description: API REST simple para gestionar usuarios
+  version: 1.0.0
+  contact:
+    name: Soporte API
+    email: soporte@tudominio.com
+    url: https://tudominio.com
+
+servers:
+  - url: http://localhost:3000/api
+    description: Servidor local
+
+paths:
+  /usuarios:
+    get:
+      summary: Obtener todos los usuarios
+      responses:
+        '200':
+          description: Lista de usuarios
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Usuario'
+
+    post:
+      summary: Crear un nuevo usuario
+      requestBody:
+        description: Datos del nuevo usuario
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/NuevoUsuario'
+      responses:
+        '201':
+          description: Usuario creado
+
+  /usuarios/{id}:
+    get:
+      summary: Obtener un usuario por ID
+      parameters:
+        - in: path
+          name: id
+          required: true
+          schema:
+            type: integer
+      responses:
+        '200':
+          description: Usuario encontrado
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Usuario'
+        '404':
+          description: Usuario no encontrado
+
+components:
+  schemas:
+    Usuario:
+      type: object
+      properties:
+        id:
+          type: integer
+          example: 1
+        nombre:
+          type: string
+          example: Juan Pérez
+        correo:
+          type: string
+          example: juan@example.com
+
+    NuevoUsuario:
+      type: object
+      required:
+        - nombre
+        - correo
+      properties:
+        nombre:
+          type: string
+          example: Ana Gómez
+        correo:
+          type: string
+          example: ana@example.com

@@ -1,0 +1,15 @@
+services:
+  mailhog:
+    image: mailhog/mailhog
+    container_name: mailhog
+    ports:
+      - "8025:8025"   # Interfaz web
+      - "1025:1025"   # SMTP
+
+    volumes:
+      - ${DOCKER_VOLUME_ABSOLUTE_PATH:-.}/mailhog-data:/data
+    restart: always
+
+# En tu app configura:
+# SMTP_HOST = localhost
+# SMTP_PORT = 1025

@@ -1,0 +1,7 @@
+services:
+  vault:
+    image: vault:latest
+    container_name: vault
+    ports:
+      - "8200:8200"
+    restart: always
