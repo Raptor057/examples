@@ -61,8 +61,8 @@ APP_VERSION=2.3.1 dotnet run --project Host/Host.Api
 
 Sobre `/metrics`: no aparece en Swagger porque devuelve texto en formato Prometheus
 para que lo lea un scraper (Prometheus, Grafana), no JSON para humanos. Se ve
-abriendo http://localhost:5200/metrics directo. Es exactamente como lo expone
-ArccNova.
+abriendo http://localhost:5200/metrics directo. Es como se expone en
+produccion.
 
 Sobre `/`: redirige a `/swagger` para que abrir la raiz lleve a la documentacion.
 Se excluye de Swagger (con `.ExcludeFromDescription()`) para no ensuciar la lista de

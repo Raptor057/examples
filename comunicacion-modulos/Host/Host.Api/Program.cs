@@ -19,7 +19,7 @@ var startedAtUtc = DateTime.UtcNow;
 
 var builder = WebApplication.CreateBuilder(args);
 
-// ---- Observabilidad (Common): habilita metricas Prometheus en /metrics, igual que ArccNova. ----
+// ---- Observabilidad (Common): habilita metricas Prometheus en /metrics. ----
 builder.Services.AddObservability(builder.Configuration, "ComunicacionModulos.Api");
 
 // ---- Mediator: escanea los assemblies de Application con handlers. ----
@@ -58,7 +58,7 @@ builder.Services.AddSwaggerGen(c =>
 {
     c.SwaggerDoc("v1", new OpenApiInfo
     {
-        Title = "Comunicacion entre modulos (globales + negocio, patron ArccNova)",
+        Title = "Comunicacion entre modulos (globales + negocio)",
         Version = "v1"
     });
 });
@@ -120,7 +120,7 @@ app.MapPrometheusScrapingEndpoint();
 
 app.MapControllers();
 
-// La raiz redirige a Swagger; se excluye de la documentacion (igual que ArccNova).
+// La raiz redirige a Swagger; se excluye de la documentacion .
 app.MapGet("/", () => Results.Redirect("/swagger")).ExcludeFromDescription();
 
 // ---- Al iniciar, abrir el navegador en /swagger (solo dev; se omite si NO_OPEN_BROWSER=1). ----

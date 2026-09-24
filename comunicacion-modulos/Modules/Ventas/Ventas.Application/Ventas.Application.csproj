@@ -11,7 +11,7 @@
 
     <!-- Contratos que consume Ventas: un modulo de negocio (Inventario) y dos
          globales (Identity, Geo). SOLO los .Contracts, nunca la implementacion.
-         Es el patron real de un use case de Subdivision en ArccNova. -->
+         Es el patron real de un use case de negocio. -->
     <ProjectReference Include="..\..\Inventario\Inventario.Contracts\Inventario.Contracts.csproj" />
     <ProjectReference Include="..\..\Globales\Identity\Identity.Contracts\Identity.Contracts.csproj" />
     <ProjectReference Include="..\..\Globales\Geo\Geo.Contracts\Geo.Contracts.csproj" />

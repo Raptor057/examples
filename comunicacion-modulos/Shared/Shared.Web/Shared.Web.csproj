@@ -6,7 +6,7 @@
     <Nullable>enable</Nullable>
   </PropertyGroup>
 
-  <!-- Chasis web compartido. En ArccNova es ArccNova.WebApi.Shared.Web. -->
+  <!-- Chasis web compartido por todos los modulos. -->
   <ItemGroup>
     <FrameworkReference Include="Microsoft.AspNetCore.App" />
     <ProjectReference Include="..\Common\Common.Messaging\Common.Messaging.csproj" />

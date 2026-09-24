@@ -9,7 +9,7 @@ namespace Ventas.Application.UseCases.RegistrarVenta;
 
 // Use case que consume TRES contratos cross-module: un modulo de negocio
 // (Inventario) y dos globales (Geo, Identity). Es el patron tipico de un use
-// case de Subdivision en ArccNova. Todo entra por Contracts; nada por la
+// case de negocio en un monolito modular. Todo entra por Contracts; nada por la
 // implementacion de esos modulos.
 public sealed class RegistrarVentaHandler : IInteractor<RegistrarVentaRequest, RegistrarVentaResponse>
 {

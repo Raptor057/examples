@@ -2,8 +2,8 @@
 
 Este documento explica, en palabras simples y con analogias, todos los terminos
 que aparecen en el proyecto. Si nunca trabajaste con Clean Architecture, CQRS o
-inyeccion de dependencias, empieza aqui. No necesitas conocer ArccNova para
-entenderlo.
+inyeccion de dependencias, empieza aqui. No necesitas experiencia previa con
+monolitos modulares para entenderlo.
 
 ## Monolito modular
 
@@ -166,7 +166,7 @@ llama `Fail(mensaje)` y fija el codigo HTTP (404, 400, ...).
 
 Por que separar Presenter del Handler: el handler se concentra en la logica de
 negocio y es facil de testear sin HTTP; el presenter se concentra en la
-presentacion. Es el patron Presenter de ArccNova.
+presentacion. Es el patron Presenter.
 
 ## ResultViewModel y el envelope de respuesta
 

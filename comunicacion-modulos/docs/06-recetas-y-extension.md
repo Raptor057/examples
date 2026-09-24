@@ -1,7 +1,7 @@
 # 06 - Recetas y extension
 
 Pasos concretos para tareas comunes. Cada receta lista los archivos a crear y los
-registros que no hay que olvidar. Sigue el mismo orden que usarias en ArccNova.
+registros que no hay que olvidar. Sigue el mismo orden que usarias en un proyecto real.
 
 ## Receta A: agregar un use case a un modulo existente
 
@@ -159,7 +159,7 @@ Sintomas de un registro olvidado:
 - La respuesta llega vacia o sin formato: falto registrar el presenter
   (`AddScoped<INotificationHandler<...Response>, ...Presenter>()`).
 
-## Convencion de nombres (igual que ArccNova)
+## Convencion de nombres
 
 | Pieza | Patron | Ejemplo |
 |-------|--------|---------|

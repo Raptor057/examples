@@ -1,8 +1,8 @@
-# Comunicacion entre modulos (monolito modular estilo ArccNova)
+# Comunicacion entre modulos (monolito modular)
 
 Proyecto de ejemplo, autoexplicado, que muestra como dos partes de una misma
 aplicacion (modulos) se comunican entre si SIN conocerse por dentro, usando el
-mismo patron que `ArccNova.WebApi`: monolito modular con Clean Architecture,
+mismo patron que un sistema en produccion: monolito modular con Clean Architecture,
 CQRS, un Mediator propio (libreria `Common`), Presenters y `ResultViewModel`.
 
 Esta pensado para que lo entienda cualquier perfil del equipo: si eres Junior,
@@ -67,9 +67,9 @@ Comunicacion entre modulos/
   ComunicacionModulos.slnx
 ```
 
-## Relacion con ArccNova
+## Relacion con un sistema real
 
-Todo lo que aqui se ve simplificado existe igual en `ArccNova.WebApi`: las capas
+Todo lo que aqui se ve simplificado existe igual en un monolito modular en produccion: las capas
 por modulo, los `{Modulo}.Contracts`, el Mediator de `Common`, los Presenters,
 `ResultViewModel`, los modulos globales (`Identity`, `Geo`, ...) y la regla de que
 los modulos solo se comunican via contratos. El detalle del mapeo esta en cada

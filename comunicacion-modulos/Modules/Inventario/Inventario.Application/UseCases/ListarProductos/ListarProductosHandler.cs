@@ -4,7 +4,7 @@ using Inventario.Domain.Repositories;
 
 namespace Inventario.Application.UseCases.ListarProductos;
 
-// Use case intra-modulo via mediator (IInteractor). Igual que LoginHandler en ArccNova.
+// Use case intra-modulo via mediator (IInteractor).
 public sealed class ListarProductosHandler : IInteractor<ListarProductosRequest, ListarProductosResponse>
 {
     private readonly IProductoRepository _productos;

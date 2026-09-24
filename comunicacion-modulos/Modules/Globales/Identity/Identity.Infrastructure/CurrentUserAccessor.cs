@@ -3,7 +3,7 @@ using Microsoft.AspNetCore.Http;
 
 namespace Identity.Infrastructure;
 
-// En ArccNova lee los claims del JWT desde HttpContext. Aqui, para la demo sin
+// En un sistema real lee los claims del JWT desde HttpContext. Aqui, para la demo sin
 // auth real, lee headers (X-User-*) y si no vienen usa un usuario demo. La idea
 // es la misma: el accessor traduce el contexto del request al contrato.
 public sealed class CurrentUserAccessor : ICurrentUserAccessor

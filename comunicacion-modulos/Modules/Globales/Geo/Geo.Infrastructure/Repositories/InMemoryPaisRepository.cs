@@ -3,7 +3,7 @@ using Geo.Domain.Repositories;
 
 namespace Geo.Infrastructure.Repositories;
 
-// Seed MX + US + CA, como el catalogo geo de ArccNova (seed MX/US).
+// Seed MX + US + CA.
 public sealed class InMemoryPaisRepository : IPaisRepository
 {
     private static readonly IReadOnlyList<Pais> Paises = new[]

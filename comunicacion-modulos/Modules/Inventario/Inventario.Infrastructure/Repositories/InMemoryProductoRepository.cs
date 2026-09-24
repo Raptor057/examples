@@ -5,7 +5,7 @@ using Inventario.Domain.Repositories;
 namespace Inventario.Infrastructure.Repositories;
 
 // Repo en memoria con seed. Singleton en DI para que el stock persista entre
-// requests durante la demo. En ArccNova esto seria un repositorio EF Core.
+// requests durante la demo. En un sistema real esto seria un repositorio EF Core.
 public sealed class InMemoryProductoRepository : IProductoRepository
 {
     private readonly ConcurrentDictionary<long, Producto> _store = new();

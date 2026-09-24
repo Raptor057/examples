@@ -19,7 +19,7 @@ Hay dos grupos: globales (transversales) y de negocio.
 ## Global: Identity
 
 Responsabilidad: saber quien esta haciendo la peticion (el usuario actual). Es el
-global mas universal; en ArccNova todos los modulos dependen de el.
+global mas universal; en un sistema real todos los modulos dependen de el.
 
 Contrato (`Identity.Contracts/ICurrentUserAccessor.cs`):
 
@@ -36,7 +36,7 @@ public interface ICurrentUserAccessor
 Implementacion (`Identity.Infrastructure/CurrentUserAccessor.cs`): lee los datos del
 contexto HTTP. En este ejemplo, de headers (`X-User-Id`, `X-User-Name`,
 `X-User-Role`); si no vienen, usa valores demo ("Usuario Demo", "Vendedor"). En
-ArccNova, en cambio, lee los claims del JWT.
+un sistema real, en cambio, lee los claims del JWT.
 
 Capas: solo `Contracts` + `Infrastructure`. No necesita Domain, Application ni
 Presentation porque es un accessor: no tiene entidades propias ni endpoints, solo

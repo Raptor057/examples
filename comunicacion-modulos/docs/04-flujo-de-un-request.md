@@ -221,7 +221,7 @@ caso simple, pero da beneficios concretos:
   a TODOS los casos de uso sin tocar cada handler.
 - El envelope uniforme simplifica el frontend.
 
-En casos triviales se nota la ceremonia; en un sistema grande como ArccNova, esta
+En casos triviales se nota la ceremonia; en un sistema grande, con decenas de modulos, esta
 estructura es la que mantiene el codigo predecible entre muchos modulos y muchas
 personas.
 

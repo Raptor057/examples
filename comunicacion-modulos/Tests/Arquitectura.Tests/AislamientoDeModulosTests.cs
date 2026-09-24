@@ -3,8 +3,8 @@ using Ventas.Application.UseCases.RegistrarVenta;
 
 namespace Arquitectura.Tests;
 
-// Convierte la regla #3 de ArccNova ("los modulos solo se comunican via Contracts")
-// en algo verificable por CI, igual que ArccNova con NetArchTest.Rules.
+// Convierte la regla central del patron ("los modulos solo se comunican via Contracts")
+// en algo verificable por CI con NetArchTest.Rules.
 public class AislamientoDeModulosTests
 {
     private static readonly System.Reflection.Assembly VentasApplication = typeof(RegistrarVentaHandler).Assembly;

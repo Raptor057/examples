@@ -6,7 +6,7 @@
     <Nullable>enable</Nullable>
   </PropertyGroup>
 
-  <!-- Igual que Identity.Application en ArccNova: Domain + Contracts propios +
+  <!-- Application referencia: Domain + Contracts propios +
        Common.Messaging (IRequest/IInteractor) + Common.Contracts (IResponse/ISuccess). -->
   <ItemGroup>
     <ProjectReference Include="..\Inventario.Domain\Inventario.Domain.csproj" />

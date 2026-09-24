@@ -3,7 +3,7 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace Shared.Web;
 
-// Controller base del chasis, igual que ArccNova.WebApi.Shared.Web.BaseApiController:
+// Controller base del chasis:
 // expone el IMediator a los controllers de cada modulo. La ruta la define cada
 // controller concreto.
 [ApiController]

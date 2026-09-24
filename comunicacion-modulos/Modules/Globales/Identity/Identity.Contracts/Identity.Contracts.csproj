@@ -1,6 +1,6 @@
 <Project Sdk="Microsoft.NET.Sdk">
 
-  <!-- Contrato del global Identity. Igual que Identity.Contracts en ArccNova:
+  <!-- Contrato del global Identity. Es
        el accessor del usuario actual, que TODOS los modulos consumen. Sin deps. -->
   <PropertyGroup>
     <TargetFramework>net10.0</TargetFramework>

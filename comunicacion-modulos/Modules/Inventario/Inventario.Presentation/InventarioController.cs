@@ -6,7 +6,7 @@ using Shared.Web;
 
 namespace Inventario.Presentation;
 
-// Igual que AuthController en ArccNova: hereda BaseApiController, envia el Request
+// Controller del modulo: hereda BaseApiController, envia el Request
 // por el Mediator y devuelve el ResultViewModel que llena el Presenter.
 [Route("api/inventario")]
 public sealed class InventarioController : BaseApiController

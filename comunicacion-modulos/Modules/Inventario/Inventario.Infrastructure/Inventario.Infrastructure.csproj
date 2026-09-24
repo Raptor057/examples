@@ -7,7 +7,7 @@
   </PropertyGroup>
 
   <!-- Infrastructure conoce Domain (entidades/puertos) y Application (para
-       registrar sus servicios desde el Host si hiciera falta). En ArccNova aqui
+       registrar sus servicios desde el Host si hiciera falta). En un sistema real aqui
        viven los repos EF Core; en el ejemplo, un repo en memoria. -->
   <ItemGroup>
     <ProjectReference Include="..\Inventario.Domain\Inventario.Domain.csproj" />

@@ -143,15 +143,15 @@ ofrecen capacidades que casi todos necesitan:
   Lo usa cualquier modulo que necesite saber el usuario actual.
 - `Geo.Contracts.IGeoCatalog`: catalogo de paises para validar o listar.
 
-En ArccNova el patron es identico: todos los modulos dependen de
-`Identity.Contracts`, y `Subdivision` consume ademas `Geo.Contracts`,
-`Files.Contracts`, `Payments.Contracts`, etc. Por eso este ejemplo incluye dos
+En un sistema real el patron es identico: todos los modulos dependen de
+`Identity.Contracts`, y los de negocio consumen ademas otros globales
+(catalogos, archivos, pagos, etc.). Por eso este ejemplo incluye dos
 globales: para mostrar el caso real mas frecuente.
 
 ## Como se verifica el aislamiento (no es solo una recomendacion)
 
 La regla "los modulos solo se comunican via Contracts" no se queda en la teoria:
-hay un test automatico que la verifica, igual que ArccNova con `NetArchTest.Rules`.
+hay un test automatico que la verifica, con `NetArchTest.Rules`.
 
 `Tests/Arquitectura.Tests/AislamientoDeModulosTests.cs`:
 

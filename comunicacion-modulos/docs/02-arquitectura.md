@@ -9,7 +9,7 @@ conceptos aplicados.
 
 ```
 Comunicacion entre modulos/
-  ComunicacionModulos.slnx              solucion (formato nuevo .slnx, como ArccNova)
+  ComunicacionModulos.slnx              solucion (formato nuevo .slnx)
   Shared/
     Common/                             copia de la libreria Common (NO se edita)
       Common.Messaging/                 IMediator, IRequest, IInteractor, IPresenter, IResponse
@@ -71,7 +71,7 @@ Lo que NUNCA pasa:
 
 ## Reglas de dependencia entre modulos (lo central)
 
-Esta es la regla mas importante del proyecto (regla #3 de ArccNova):
+Esta es la regla mas importante del proyecto (la que sostiene todo el patron):
 
 > Un modulo NUNCA referencia el codigo interno de otro modulo. La unica forma de
 > usar otro modulo es a traves de su proyecto `{Modulo}.Contracts`.
@@ -121,7 +121,7 @@ composition root).
 ## La libreria Common
 
 `Shared/Common` es una **copia** de
-`https://github.com/Raptor-Dev-Services/Common.git` (el mismo que usa ArccNova),
+`https://github.com/Raptor-Dev-Services/Common.git`,
 incluida tal cual dentro del ejemplo. En un proyecto real va como submodulo fijado a
 un commit; aqui se copio para que el ejemplo compile sin pasos extra dentro del
 monorepo `examples`. Es codigo compartido y NO se edita desde este ejemplo.
@@ -158,12 +158,12 @@ trabajo (en `Program.cs`) es:
 El detalle de Program.cs esta en
 [07-endpoints-pruebas-y-ejecucion.md](07-endpoints-pruebas-y-ejecucion.md).
 
-## Diferencias deliberadas con ArccNova
+## Diferencias deliberadas con un sistema real
 
 Este ejemplo simplifica todo lo que no sea el patron de modulos, para que el foco
 quede claro:
 
-- `Modules/Globales/` agrupa los globales FISICAMENTE. En ArccNova es una carpeta
+- `Modules/Globales/` agrupa los globales FISICAMENTE. En un sistema grande suele ser una carpeta
   de solucion virtual (en el `.slnx`) y los proyectos viven planos en `Modules/`.
   Aqui se separa fisico para que la distincion global vs negocio se vea de
   inmediato.
@@ -174,7 +174,7 @@ quede claro:
   cablea el Mediator y las metricas Prometheus.
 
 Todo lo demas (capas, Contracts, Mediator, Presenter, ResultViewModel, registro en
-el Host, modulos globales) es igual que en ArccNova.
+el Host, modulos globales) es igual que en un sistema en produccion.
 
 ## Siguiente paso
 
