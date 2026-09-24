@@ -1,0 +1,28 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <!-- Windows y no net10.0 a secas: el SDK de Link-OS solo publica para Windows, Android e
+         iOS, y las clases de escritorio (DriverPrinterConnection, UsbDiscoverer) viven en
+         SdkApi.Desktop. La version 5 pide 10.0.26100; la 4 pedia 19041. Ver docs/LINK-OS-SDK.md. -->
+    <TargetFramework>net10.0-windows10.0.26100</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+    <TreatWarningsAsErrors>true</TreatWarningsAsErrors>
+    <!-- El propio paquete de Zebra arrastra WindowsAppSDK con RID antiguos (win10-x64). Con
+         TreatWarningsAsErrors eso tumba la compilacion, y no es algo que podamos arreglar aqui. -->
+    <NoWarn>$(NoWarn);NETSDK1206</NoWarn>
+  </PropertyGroup>
+  <ItemGroup>
+    <PackageReference Include="Zebra.Printer.SDK" Version="5.0.3685" />
+    <PackageReference Include="Microsoft.Extensions.Options" Version="10.0.4" />
+    <!-- Configure<T>(IConfigurationSection) vive aqui, no en Options a secas. -->
+    <PackageReference Include="Microsoft.Extensions.Options.ConfigurationExtensions" Version="10.0.4" />
+    <PackageReference Include="Microsoft.Extensions.Logging.Abstractions" Version="10.0.4" />
+    <!-- AddHttpClient, para el renderizador de vista previa. -->
+    <PackageReference Include="Microsoft.Extensions.Http" Version="10.0.4" />
+    <PackageReference Include="Microsoft.Extensions.Configuration.Binder" Version="10.0.4" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\..\Shared\LabelPrinting.Shared\LabelPrinting.Shared.csproj" />
+    <ProjectReference Include="..\Printing.Domain\Printing.Domain.csproj" />
+  </ItemGroup>
+</Project>

@@ -1,0 +1,15 @@
+<Solution>
+  <Folder Name="/Shared/">
+    <Project Path="Common/Common.csproj" />
+    <Project Path="Shared/LabelPrinting.Shared/LabelPrinting.Shared.csproj" />
+    <Project Path="Shared/LabelPrinting.Shared.Web/LabelPrinting.Shared.Web.csproj" />
+  </Folder>
+  <Folder Name="/Modules/">
+    <Project Path="Modules/Printing/Printing.Application/Printing.Application.csproj" />
+    <Project Path="Modules/Printing/Printing.Domain/Printing.Domain.csproj" />
+    <Project Path="Modules/Printing/Printing.Infrastructure/Printing.Infrastructure.csproj" />
+    <Project Path="Modules/Printing/Printing.Presentation/Printing.Presentation.csproj" />
+    <Project Path="Modules/Printing/Printing.Tests/Printing.Tests.csproj" />
+  </Folder>
+  <Project Path="LabelPrinting.Host/LabelPrinting.Host.csproj" />
+</Solution>

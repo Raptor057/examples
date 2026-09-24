@@ -1,0 +1,10 @@
+bin/
+obj/
+node_modules/
+dist/
+*.db
+*.db-shm
+*.db-wal
+
+# Lo que deja el simulador al "imprimir": salida, no fuente.
+printed-labels/

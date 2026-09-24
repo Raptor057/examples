@@ -1,0 +1,20 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <TargetFramework>net10.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+    <TreatWarningsAsErrors>true</TreatWarningsAsErrors>
+  </PropertyGroup>
+  <ItemGroup>
+    <InternalsVisibleTo Include="Printing.Tests" />
+  </ItemGroup>
+  <ItemGroup>
+    <!-- Solo las abstracciones de registro: Application no elige implementacion de logging, la
+         recibe. Es la misma razon por la que no referencia Infrastructure. -->
+    <PackageReference Include="Microsoft.Extensions.Logging.Abstractions" Version="10.0.4" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\..\Common\Common.csproj" />
+    <ProjectReference Include="..\Printing.Domain\Printing.Domain.csproj" />
+  </ItemGroup>
+</Project>

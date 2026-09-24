@@ -1,0 +1,33 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+  <PropertyGroup>
+    <!-- El Host hereda el objetivo de Windows porque referencia Printing.Infrastructure, que
+         arrastra el SDK de Zebra. Es la consecuencia de que el SDK solo exista para Windows. -->
+    <TargetFramework>net10.0-windows10.0.26100</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+    <TreatWarningsAsErrors>true</TreatWarningsAsErrors>
+    <NoWarn>$(NoWarn);NETSDK1206</NoWarn>
+    <UserSecretsId>zebra-label-printing</UserSecretsId>
+  </PropertyGroup>
+  <ItemGroup>
+    <PackageReference Include="Microsoft.AspNetCore.OpenApi" Version="10.0.12" />
+    <PackageReference Include="Microsoft.AspNetCore.Authentication.JwtBearer" Version="10.0.12" />
+    <PackageReference Include="System.IdentityModel.Tokens.Jwt" Version="8.19.2" />
+    <!-- Mismo caso que SQLitePCLRaw: el paquete de OpenAPI arrastraba Microsoft.OpenApi 2.0.0,
+         con vulnerabilidad conocida. Se pina a la linea 2.x parcheada. -->
+    <PackageReference Include="Microsoft.OpenApi" Version="2.12.2" />
+  </ItemGroup>
+  <ItemGroup>
+    <!-- Los scripts viajan con el binario: el arranque los corre desde la carpeta de salida. -->
+    <Content Include="db\**\*.sql" CopyToOutputDirectory="PreserveNewest" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Common\Common.csproj" />
+    <ProjectReference Include="..\Shared\LabelPrinting.Shared\LabelPrinting.Shared.csproj" />
+    <ProjectReference Include="..\Shared\LabelPrinting.Shared.Web\LabelPrinting.Shared.Web.csproj" />
+    <ProjectReference Include="..\Modules\Printing\Printing.Domain\Printing.Domain.csproj" />
+    <ProjectReference Include="..\Modules\Printing\Printing.Application\Printing.Application.csproj" />
+    <ProjectReference Include="..\Modules\Printing\Printing.Infrastructure\Printing.Infrastructure.csproj" />
+    <ProjectReference Include="..\Modules\Printing\Printing.Presentation\Printing.Presentation.csproj" />
+  </ItemGroup>
+</Project>

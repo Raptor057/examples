@@ -1,0 +1,21 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <TargetFramework>net10.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+    <TreatWarningsAsErrors>true</TreatWarningsAsErrors>
+  </PropertyGroup>
+  <ItemGroup>
+    <PackageReference Include="Dapper" Version="2.1.66" />
+    <PackageReference Include="Microsoft.Data.Sqlite" Version="10.0.12" />
+    <!-- Pin explicito de una dependencia TRANSITIVA. Microsoft.Data.Sqlite arrastra
+         SQLitePCLRaw 2.1.11, que tiene una vulnerabilidad conocida (NU1903). La unica forma de
+         subirla sin esperar al paquete de arriba es nombrarla aqui: una referencia directa gana
+         sobre la transitiva. Se revisa al actualizar Microsoft.Data.Sqlite, y se quita cuando el
+         paquete de arriba ya traiga una version sana. -->
+    <PackageReference Include="SQLitePCLRaw.bundle_e_sqlite3" Version="2.1.13" />
+    <PackageReference Include="Microsoft.Extensions.Configuration.Abstractions" Version="10.0.4" />
+    <PackageReference Include="Microsoft.Extensions.DependencyInjection.Abstractions" Version="10.0.4" />
+    <PackageReference Include="Microsoft.Extensions.Logging.Abstractions" Version="10.0.4" />
+  </ItemGroup>
+</Project>

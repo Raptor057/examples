@@ -1,0 +1,23 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <TargetFramework>net10.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+    <TreatWarningsAsErrors>true</TreatWarningsAsErrors>
+  </PropertyGroup>
+  <ItemGroup>
+    <!-- Biblioteca, no aplicacion: usa tipos de ASP.NET pero no tiene punto de entrada.
+         Con Sdk.Web el compilador exigiria un Main que aqui no existe. -->
+    <FrameworkReference Include="Microsoft.AspNetCore.App" />
+  </ItemGroup>
+  <ItemGroup>
+    <!-- Presentation referencia Domain para el tipo de la vista previa, que viaja como
+         imagen y no por el envelope. -->
+    <ProjectReference Include="..\Printing.Domain\Printing.Domain.csproj" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\..\Common\Common.csproj" />
+    <ProjectReference Include="..\..\..\Shared\LabelPrinting.Shared.Web\LabelPrinting.Shared.Web.csproj" />
+    <ProjectReference Include="..\Printing.Application\Printing.Application.csproj" />
+  </ItemGroup>
+</Project>
