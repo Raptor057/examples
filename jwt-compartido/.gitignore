@@ -1,0 +1,37 @@
+# ---- Artefactos de build .NET ----
+bin/
+obj/
+out/
+[Dd]ebug/
+[Rr]elease/
+x64/
+x86/
+*.dll
+*.pdb
+
+# ---- IDE / editores ----
+.vs/
+.vscode/
+.idea/
+*.user
+*.suo
+*.userosscache
+*.sln.docstates
+*.DotSettings.user
+
+# ---- Resultados de test ----
+[Tt]est[Rr]esult*/
+*.trx
+
+# ---- Secretos y entornos locales ----
+# OJO: appsettings.json SI se versiona a proposito: trae la clave demo que
+# hace funcionar el ejemplo. En un proyecto real la clave va en user-secrets
+# o variables de entorno, nunca en el repo.
+secrets.json
+appsettings.*.local.json
+.env
+*.env
+
+# ---- Sistema operativo ----
+.DS_Store
+Thumbs.db

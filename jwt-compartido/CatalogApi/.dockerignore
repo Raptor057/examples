@@ -1,0 +1,14 @@
+# Artefactos de build (se generan dentro de la imagen)
+bin/
+obj/
+
+# No deben entrar al build context
+Dockerfile
+.dockerignore
+
+# IDE y sistema operativo
+.vs/
+.vscode/
+.idea/
+*.user
+.DS_Store
