@@ -16,3 +16,6 @@ codigo**. Agregar un endpoint no lo amerita; elegir como se guarda una plantilla
 | [0005](ADR-0005-sqlite-y-esquema-al-arrancar.md) | SQLite con Dapper, y el esquema se aplica al arrancar | Aceptada, **solo para el ejemplo** |
 | [0006](ADR-0006-envelope-y-presenter-por-caso-de-uso.md) | Un envelope unico y un presenter por caso de uso | Aceptada |
 | [0007](ADR-0007-escapar-valores-antes-de-meterlos-al-zpl.md) | Los valores se escapan antes de entrar al ZPL | Aceptada |
+| [0008](ADR-0008-cola-durable-con-reintentos.md) | Una cola durable con reintentos y espera creciente | Aceptada |
+| [0009](ADR-0009-vista-previa-contra-un-servicio-de-terceros.md) | La vista previa la dibuja un servicio de terceros, y viene apagada | Aceptada |
+| [0010](ADR-0010-permisos-separados-imprimir-y-administrar.md) | Imprimir y administrar plantillas son permisos distintos | Aceptada |
